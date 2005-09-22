@@ -23,55 +23,61 @@
 
     Last Update:      $Author: braindead $
     Update Date:      $Date: 2005/09/22 15:40:46 $
-    Source File:      $Source: /sources/aeskulap/aeskulap/src/astockids.h,v $
-    CVS/RCS Revision: $Revision: 1.2 $
+    Source File:      $Source: /sources/aeskulap/aeskulap/widgets/adatefilter.h,v $
+    CVS/RCS Revision: $Revision: 1.1 $
     Status:           $State: Exp $
 */
 
-#ifndef AESKULAP_STOCKIDS_H
-#define AESKULAP_STOCKIDS_H
+#ifndef AESKULAP_DATEFILTER_H
+#define AESKULAP_DATEFILTER_H
 
-#include "gtkmm.h"
+#include <gtkmm.h>
+#include <string>
 
 namespace Aeskulap {
 
-class Stock {
+class DateFilter : public Gtk::HBox {
 public:
 
-	static Gtk::StockID GRID_1X1;
+	DateFilter();
 
-	static Gtk::StockID GRID_1X2;
+	void clear();
 
-	static Gtk::StockID GRID_2X1;
+	const std::string& get_startdate();
 
-	static Gtk::StockID GRID_2X2;
+	const std::string& get_enddate();
 
-	static Gtk::StockID GRID_4X4;
+protected:
 
-	static Gtk::StockID SERIES_SINGLE;
+	void set_today();
 
-	static Gtk::StockID SERIES_ALL;
+	void set_yesterday();
 
-	static Gtk::StockID SERIES_1X1;
+	bool select_date(const Glib::ustring& title, std::string& isodate);
 
-	static Gtk::StockID SERIES_2X1;
+	void update_labels();
 
-	static Gtk::StockID SERIES_2X2;
+	void on_select_date(bool rangestart);
 
-	static Gtk::StockID SERIES_3X2;
+	void on_filtertype_changed();
 
-	static Gtk::StockID SERIES_3X3;
+	// filter widgets
 
-	static Gtk::StockID REFFRAME;
+	Gtk::ComboBoxText* m_filter_type;
+	
+	Gtk::Button* m_filter_popup_from;
 
-	static Gtk::StockID DRAW_ERASER;
+	Gtk::Button* m_filter_popup_to;
+	
+	Gtk::HBox* m_filter_date;
+	
+	Gtk::HBox* m_filter_range;
 
-	static Gtk::StockItem StockItems[];
+	std::string m_startdate;
 
-	static void init_stock_items();
-
+	std::string m_enddate;
 };
 
 } // namespace Aeskulap
 
-#endif // AESKULAP_STOCKIDS_H
+#endif // AESKULAP_DATEFILTER_H
