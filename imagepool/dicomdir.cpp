@@ -161,11 +161,11 @@ namespace ImagePool {
                 study.insert(el);
             if ( studyRec->findAndGetElement(DCM_StudyDescription, el, OFTrue) == ECC_Normal )
                 study.insert(el);
-            if ( patRec->findAndGetElement(DCM_PatientsName, el, OFTrue) == ECC_Normal )
+            if ( patRec->findAndGetElement(DCM_PatientName, el, OFTrue) == ECC_Normal )
                 study.insert(el);
-            if ( patRec->findAndGetElement(DCM_PatientsBirthDate, el, OFTrue) == ECC_Normal )
+            if ( patRec->findAndGetElement(DCM_PatientBirthDate, el, OFTrue) == ECC_Normal )
                 study.insert(el);
-            if ( patRec->findAndGetElement(DCM_PatientsSex, el, OFTrue) == ECC_Normal )
+            if ( patRec->findAndGetElement(DCM_PatientSex, el, OFTrue) == ECC_Normal )
                 study.insert(el);
             resultslot(create_query_study(&study, std::string("DICOMDIR:") + dicomdir));
         }
