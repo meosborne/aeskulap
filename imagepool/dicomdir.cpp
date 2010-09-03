@@ -151,21 +151,21 @@ namespace ImagePool {
             DcmDataset study;
             DcmElement *el;
 
-            if ( studyRec->findAndCopyElement(DCM_SpecificCharacterSet, el) == ECC_Normal )
+            if ( studyRec->findAndGetElement(DCM_SpecificCharacterSet, el, OFTrue) == ECC_Normal )
                 study.insert(el);
-            if ( studyRec->findAndCopyElement(DCM_StudyInstanceUID, el) == ECC_Normal )
+            if ( studyRec->findAndGetElement(DCM_StudyInstanceUID, el, OFTrue) == ECC_Normal )
                 study.insert(el);
-            if ( studyRec->findAndCopyElement(DCM_StudyDate, el) == ECC_Normal )
+            if ( studyRec->findAndGetElement(DCM_StudyDate, el, OFTrue) == ECC_Normal )
                 study.insert(el);
-            if ( studyRec->findAndCopyElement(DCM_StudyTime, el) == ECC_Normal )
+            if ( studyRec->findAndGetElement(DCM_StudyTime, el, OFTrue) == ECC_Normal )
                 study.insert(el);
-            if ( studyRec->findAndCopyElement(DCM_StudyDescription, el) == ECC_Normal )
+            if ( studyRec->findAndGetElement(DCM_StudyDescription, el, OFTrue) == ECC_Normal )
                 study.insert(el);
-            if ( patRec->findAndCopyElement(DCM_PatientsName, el) == ECC_Normal )
+            if ( patRec->findAndGetElement(DCM_PatientsName, el, OFTrue) == ECC_Normal )
                 study.insert(el);
-            if ( patRec->findAndCopyElement(DCM_PatientsBirthDate, el) == ECC_Normal )
+            if ( patRec->findAndGetElement(DCM_PatientsBirthDate, el, OFTrue) == ECC_Normal )
                 study.insert(el);
-            if ( patRec->findAndCopyElement(DCM_PatientsSex, el) == ECC_Normal )
+            if ( patRec->findAndGetElement(DCM_PatientsSex, el, OFTrue) == ECC_Normal )
                 study.insert(el);
             resultslot(create_query_study(&study, std::string("DICOMDIR:") + dicomdir));
         }
@@ -221,21 +221,21 @@ namespace ImagePool {
             DcmDataset series;
             DcmElement *el;
 
-            if ( seriesRec->findAndCopyElement(DCM_SpecificCharacterSet, el) == ECC_Normal )
+            if ( seriesRec->findAndGetElement(DCM_SpecificCharacterSet, el, OFTrue) == ECC_Normal )
                 series.insert(el);
-            if ( seriesRec->findAndCopyElement(DCM_SeriesDescription, el) == ECC_Normal )
+            if ( seriesRec->findAndGetElement(DCM_SeriesDescription, el, OFTrue) == ECC_Normal )
                 series.insert(el);
-            if ( seriesRec->findAndCopyElement(DCM_SeriesInstanceUID, el) == ECC_Normal )
+            if ( seriesRec->findAndGetElement(DCM_SeriesInstanceUID, el, OFTrue) == ECC_Normal )
                 series.insert(el);
-            if ( seriesRec->findAndCopyElement(DCM_Modality, el) == ECC_Normal )
+            if ( seriesRec->findAndGetElement(DCM_Modality, el, OFTrue) == ECC_Normal )
                 series.insert(el);
-            if ( seriesRec->findAndCopyElement(DCM_SeriesDate, el) == ECC_Normal )
+            if ( seriesRec->findAndGetElement(DCM_SeriesDate, el, OFTrue) == ECC_Normal )
                 series.insert(el);
-            if ( seriesRec->findAndCopyElement(DCM_SeriesTime, el) == ECC_Normal )
+            if ( seriesRec->findAndGetElement(DCM_SeriesTime, el, OFTrue) == ECC_Normal )
                 series.insert(el);
-            if ( studyRec->findAndCopyElement(DCM_StudyDescription, el) == ECC_Normal )
+            if ( studyRec->findAndGetElement(DCM_StudyDescription, el, OFTrue) == ECC_Normal )
                 series.insert(el);
-            if ( studyRec->findAndCopyElement(DCM_StationName, el) == ECC_Normal )
+            if ( studyRec->findAndGetElement(DCM_StationName, el, OFTrue) == ECC_Normal )
                 series.insert(el);
 
             // Count Related SOP Instances
